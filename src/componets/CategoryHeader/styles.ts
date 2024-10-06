@@ -41,6 +41,7 @@ export const Titulo = styled.h1`
 
 export const Logo = styled.img`
   width: 125px;
+  cursor: pointer;
 `
 export const ImageContainer = styled.div`
   position: relative;

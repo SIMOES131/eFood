@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 
-export const Container = styled.section`
-  padding: 120px;
-
-  margin-right: 220px;
+export const Section = styled.div`
+  padding-bottom: 120px;
 `
 
 export const List = styled.ul`

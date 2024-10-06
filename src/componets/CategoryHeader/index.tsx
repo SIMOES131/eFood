@@ -11,28 +11,41 @@ import {
 
 import logo from '../../assets/images/logo.png'
 import image from '../../assets/images/LaDolceVita.png'
+import { useNavigate } from 'react-router-dom'
 
-const CategoryHeader = () => (
-  <HeaderBar>
-    <nav>
-      <Links>
-        <LinkItem>
-          <a href="#">Restaurantes</a>
-        </LinkItem>
-        <LinkItem>
-          <Logo src={logo} alt="eFood" />
-        </LinkItem>
-        <LinkItem>
-          <a href="#">0 - produto(s) disponíveis</a>
-        </LinkItem>
-      </Links>
-    </nav>
-    <ImageContainer>
-      <TopText>Italiana</TopText>
-      <Image src={image} alt="Imagem" />
-      <BottomText>La Dolce Vita Trattoria</BottomText>
-    </ImageContainer>
-  </HeaderBar>
-)
+type Props = {
+  to?: string
+}
+
+const CategoryHeader = ({ to = '/' }: Props) => {
+  const navigate = useNavigate()
+
+  const handleGoBack = () => {
+    navigate(-1) // Navegar para a página anterior
+  }
+
+  return (
+    <HeaderBar>
+      <nav>
+        <Links>
+          <LinkItem>
+            <a href="#">Restaurantes</a>
+          </LinkItem>
+          <LinkItem>
+            <Logo src={logo} alt="eFood" onClick={handleGoBack} />
+          </LinkItem>
+          <LinkItem>
+            <a href="#">0 - produto(s) disponíveis</a>
+          </LinkItem>
+        </Links>
+      </nav>
+      <ImageContainer>
+        <TopText>Italiana</TopText>
+        <Image src={image} alt="Imagem" />
+        <BottomText>La Dolce Vita Trattoria</BottomText>
+      </ImageContainer>
+    </HeaderBar>
+  )
+}
 
 export default CategoryHeader
