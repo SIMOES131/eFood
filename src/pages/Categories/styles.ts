@@ -45,6 +45,7 @@ export const StyledButton = styled.button`
   color: ${cores.laranjaEscuro};
   font-weight: bold;
   font-size: 14px;
+  cursor: pointer;
 
   &:hover {
     background-color: ${cores.corDeFundo};
