@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.section`
   padding: 120px;
 
-  margin-right: 171px;
+  margin-right: 220px;
 `
 
 export const List = styled.ul`
