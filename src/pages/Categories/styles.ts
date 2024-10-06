@@ -43,6 +43,7 @@ export const CategoryCard = styled.li`
 export const StyledButton = styled.button`
   background-color: ${cores.laranjaClaro};
   color: ${cores.laranjaEscuro};
+  border: none;
   font-weight: bold;
   font-size: 14px;
   cursor: pointer;

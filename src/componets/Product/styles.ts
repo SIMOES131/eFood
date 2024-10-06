@@ -28,6 +28,14 @@ export const Avaliacao = styled.div`
   margin-left: 8px;
   display: flex;
   column-gap: 8px;
+
+  h1 {
+    font-size: 18px;
+  }
+  img {
+    width: 21px;
+    height: 20px;
+  }
 `
 
 export const Titulo = styled.h2`
