@@ -2,18 +2,22 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 
 export const FooterBar = styled.footer`
-  background-color: ${cores.laranjaClaro};
+  background-color: ${cores.corCabecalhoRodape};
   padding-top: 64px;
   padding-bottom: 40px;
-  margin-bottom: 80px;
+  max-width: 100%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center; /* Corrigido aqui */
 
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+
   a {
-    color: ${cores.laranjaEscuro};
+    color: ${cores.corFonteBotaoTag};
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
@@ -22,7 +26,7 @@ export const FooterBar = styled.footer`
 
 export const P = styled.p`
   font-size: 10px;
-  color: ${cores.laranjaEscuro};
+  color: ${cores.corFonteBotaoTag};
   padding-top: 110px;
   padding-bottom: 40px;
   text-align: center;

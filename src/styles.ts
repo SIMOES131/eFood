@@ -2,13 +2,11 @@ import styled, { createGlobalStyle } from 'styled-components'
 
 export const cores = {
   branca: '#fff',
-  preta: '#111',
-  cinza: '#333',
-  verde: '#10ACB4',
-  cinzaClaro: '#A3A3A3',
-  laranjaEscuro: ' #E66767',
-  laranjaClaro: '#ffebd9',
-  corDeFundo: '#fff8f2'
+  corFonteBotaoTag: ' #E66767',
+  laranjaClaro: '#ffffff',
+  corCabecalhoRodape: '#FFEBD9',
+  corDeFundoCard: '#fff8f2',
+  corDeFundo: '#FFF8F2'
 }
 
 export const GlobalCss = createGlobalStyle`
@@ -23,17 +21,18 @@ text-decoration: none;
 
 body {
   background-color: ${cores.corDeFundo};
-  padding-top: 80px;
+  padding-top: 0px;
+  padding-left: 0px;
 
   .container {
-  width: 1024px;
-  margin-left: 171px;
+  width: 100%
+  max-width: 1024px;
+   margin: 0 auto;
   }
 }
 `
 
 export const Container = styled.div`
-  max-width: 1024px;
   width: 100%;
   margin: 0 auto;
 `

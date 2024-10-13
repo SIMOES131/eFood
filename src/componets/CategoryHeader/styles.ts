@@ -2,17 +2,22 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 
 export const HeaderBar = styled.header`
-  background-color: ${cores.laranjaClaro};
+  background-color: ${cores.corCabecalhoRodape};
   padding-top: 64px;
-  padding-bottom: 0px;
   margin-bottom: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Corrigido aqui */
+  justify-content: center;
+  max-width: 100%;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    display: block;
+  }
 
   a {
-    color: ${cores.laranjaEscuro};
+    color: ${cores.corFonteBotaoTag};
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
@@ -33,7 +38,7 @@ export const LinkItem = styled.li`
 
 export const Titulo = styled.h1`
   font-size: 36px;
-  color: ${cores.laranjaEscuro};
+  color: ${cores.corFonteBotaoTag};
   padding-top: 110px;
   padding-bottom: 40px;
   text-align: center;

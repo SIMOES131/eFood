@@ -57,7 +57,7 @@ const restaurante: Restaurant[] = [
 ]
 
 const Home = () => (
-  <div>
+  <div className="container">
     <ProductsList restaurant={restaurante} />
   </div>
 )

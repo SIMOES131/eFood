@@ -62,7 +62,7 @@ const restaurante: Restaurant[] = [
 
 const Categories = () => (
   <CategoriesContainer>
-    <CategoriesGrid>
+    <CategoriesGrid className="container">
       {restaurante.map((item) => (
         <CategoryCard key={item.id}>
           <img src={item.image} alt={item.title} />

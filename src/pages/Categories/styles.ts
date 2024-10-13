@@ -1,22 +1,33 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 
-// Container da página Categories
 export const CategoriesContainer = styled.div`
-  padding: 171px;
+  display: flex;
+  justify-content: center; /* Centraliza a seção no container */
+  padding-top: 80px;
+  padding-bottom: 120px;
+  width: 100%; /* Garante que o container ocupe toda a largura */
 `
 
-// Estilo do grid específico para a página Categories
 export const CategoriesGrid = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 colunas na página Categories */
-  column-gap: 20px;
-  row-gap: 20px;
+  column-gap: 32px;
+  row-gap: 32px;
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    padding-left: 25%;
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin: 0 auto;
+  }
 `
 
-// Estilo específico para os cards na página Categories
 export const CategoryCard = styled.li`
-  background-color: ${cores.laranjaEscuro};
+  background-color: ${cores.corFonteBotaoTag};
   width: 320px;
   height: 338px;
   display: flex;
@@ -30,25 +41,27 @@ export const CategoryCard = styled.li`
   }
 
   h2 {
-    color: ${cores.laranjaClaro};
+    color: ${cores.corDeFundoCard};
     font-size: 16px;
   }
 
   p {
     font-size: 14px;
-    color: ${cores.laranjaClaro};
+    color: ${cores.corDeFundoCard};
   }
 `
 
 export const StyledButton = styled.button`
-  background-color: ${cores.laranjaClaro};
-  color: ${cores.laranjaEscuro};
+  background-color: ${cores.corDeFundoCard};
+  color: ${cores.corFonteBotaoTag};
   border: none;
   font-weight: bold;
   font-size: 14px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   cursor: pointer;
 
   &:hover {
-    background-color: ${cores.corDeFundo};
+    background-color: ${cores.corDeFundoCard};
   }
 `

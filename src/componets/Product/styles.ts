@@ -4,8 +4,8 @@ import { TagContainer } from '../Tag/styles'
 import { ButtonLink } from '../Button/styles'
 
 export const Card = styled.div`
-  background-color: ${cores.laranjaClaro};
-  border: 1px solid ${cores.laranjaEscuro};
+  background-color: ${cores.corDeFundoCard};
+  border: 1px solid ${cores.corFonteBotaoTag};
   position: relative;
   padding-bottom: 8px;
 
@@ -21,7 +21,7 @@ export const Card = styled.div`
 export const Avaliacao = styled.div`
   font-size: 18px;
   line-height: 21px;
-  color: ${cores.laranjaEscuro};
+  color: ${cores.corDeFundoCard};
   margin-bottom: 16px;
   margin-top: 8px;
   margin-right: 8px;
@@ -41,7 +41,7 @@ export const Avaliacao = styled.div`
 export const Titulo = styled.h2`
   font-size: 18px;
   line-height: 21px;
-  color: ${cores.laranjaEscuro};
+  color: ${cores.corFonteBotaoTag};
   margin-bottom: 16px;
   margin-top: 8px;
   margin-right: 8px;
@@ -56,7 +56,7 @@ export const NotaTitulo = styled.div`
 export const Descricao = styled.p`
   font-size: 14px;
   line-height: 22px;
-  color: ${cores.laranjaEscuro};
+  color: ${cores.corFonteBotaoTag};
   margin-left: 8px;
 `
 
