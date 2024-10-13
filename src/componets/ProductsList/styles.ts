@@ -8,7 +8,7 @@ export const Section = styled.div`
 
   @media (max-width: 1024px) {
     .container {
-      width: 472px;
+      width: 46;
       margin-left: 0;
     }
     max-width: 46%;

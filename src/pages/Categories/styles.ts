@@ -6,7 +6,7 @@ export const CategoriesContainer = styled.div`
   justify-content: center; /* Centraliza a seção no container */
   padding-top: 80px;
   padding-bottom: 120px;
-  width: 100%; /* Garante que o container ocupe toda a largura */
+  width: 100%;
 `
 
 export const CategoriesGrid = styled.ul`

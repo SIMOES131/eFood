@@ -9,6 +9,20 @@ export const Card = styled.div`
   position: relative;
   padding-bottom: 8px;
 
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    width: 400px;
+
+    p {
+    margin-right: 8px;
+    }
+
+   img {
+    width: 398px;
+    height: 182px;
+  }
+  }
+
   ${TagContainer} {
     margin-rigth: 16px;
   }
@@ -31,6 +45,7 @@ export const Avaliacao = styled.div`
 
   h1 {
     font-size: 18px;
+    color: ${cores.corFonteBotaoTag};
   }
   img {
     width: 21px;

@@ -30,6 +30,10 @@ export const P = styled.p`
   padding-top: 110px;
   padding-bottom: 40px;
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding-top: 50px;
+  }
 `
 
 export const Logo = styled.img`
@@ -37,12 +41,16 @@ export const Logo = styled.img`
 `
 export const SocialMedia = styled.div`
   margin-top: 32px;
-  margin-bottom: 50px;
   display: flex;
   width: 24px;
   height: 24px;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 `
 export const SocialMediaImage = styled.img`
   margin-right: 8px;

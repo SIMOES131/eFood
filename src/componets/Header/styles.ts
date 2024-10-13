@@ -17,6 +17,15 @@ export const HeaderBar = styled.header`
     width: 100%;
   }
 
+  @media (max-width: 768px) {
+    margin-bottom: 40px;
+    h1 {
+      font-size: 25px;
+      padding-bottom: 10px;
+      padding-top: 30px;
+    }
+  }
+
   a {
     color: ${cores.corFonteBotaoTag};
     text-decoration: none;

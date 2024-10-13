@@ -16,6 +16,10 @@ export const HeaderBar = styled.header`
     display: block;
   }
 
+  @media (max-width: 768px) {
+    margin-bottom: 40px;
+  }
+
   a {
     color: ${cores.corFonteBotaoTag};
     text-decoration: none;
@@ -30,6 +34,11 @@ export const Links = styled.ul`
   align-items: center;
   margin-right: 171px;
   width: 100%; /* Ocupar a largura total para distribuir os itens */
+
+  @media (max-width: 768px) {
+    display: block;
+    text-align: center;
+  }
 `
 
 export const LinkItem = styled.li`
@@ -47,6 +56,10 @@ export const Titulo = styled.h1`
 export const Logo = styled.img`
   width: 125px;
   cursor: pointer;
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
 `
 export const ImageContainer = styled.div`
   position: relative;
@@ -58,6 +71,10 @@ export const Image = styled.img`
   width: 100%;
   height: 280px;
   margin-top: 65px;
+  @media (max-width: 768px) {
+    height: 220px;
+    margin-top: 80px;
+  }
 `
 
 export const TopText = styled.div`
@@ -67,6 +84,11 @@ export const TopText = styled.div`
   font-size: 32px;
   color: ${cores.branca};
   z-index: 2;
+
+  @media (max-width: 768px) {
+    font-size: 25px;
+    padding-top: 50px;
+  }
 `
 
 export const BottomText = styled.div`
@@ -77,4 +99,8 @@ export const BottomText = styled.div`
   font-weight: bold;
   color: ${cores.branca};
   z-index: 2;
+
+  @media (max-width: 768px) {
+    font-size: 25px;
+  }
 `
