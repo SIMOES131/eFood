@@ -5,7 +5,7 @@ export const cores = {
   corFonteBotaoTag: ' #E66767',
   laranjaClaro: '#ffffff',
   corCabecalhoRodape: '#FFEBD9',
-  corDeFundoCard: '#fff8f2',
+  corDeFundoCard: '#ffffff',
   corDeFundo: '#FFF8F2'
 }
 
