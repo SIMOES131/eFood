@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 import { ButtonLink } from '../Button/styles'
+import { Links } from '../Header/styles'
 
 export const Card = styled.div`
   background-color: ${cores.corDeFundoCard};
@@ -27,10 +28,14 @@ export const Card = styled.div`
     margin-rigth: 16px;
   }
 
+${Links} {
+padding-bottom: 8px;
+}
+
   ${ButtonLink} {
-    margin-top: 8px;
+
     margin-left: 8px;
-    margin-bottom: 16px;
+    padding-top: 4px 6px;
 `
 export const Avaliacao = styled.div`
   font-size: 18px;
@@ -73,6 +78,7 @@ export const Descricao = styled.p`
   line-height: 22px;
   color: ${cores.corFonteBotaoTag};
   margin-left: 8px;
+  padding-bottom: 16px;
 `
 
 export const Infos = styled.div`
