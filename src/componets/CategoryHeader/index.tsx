@@ -15,9 +15,10 @@ import { useNavigate } from 'react-router-dom'
 
 type Props = {
   to?: string
+  cartItemCount: number
 }
 
-const CategoryHeader = ({ to = '/' }: Props) => {
+const CategoryHeader = ({ to = '/', cartItemCount }: Props) => {
   const navigate = useNavigate()
 
   const handleGoBack = () => {
@@ -35,7 +36,7 @@ const CategoryHeader = ({ to = '/' }: Props) => {
             <Logo src={logo} alt="eFood" onClick={handleGoBack} />
           </LinkItem>
           <LinkItem>
-            <a href="#">0 - produto(s) disponíveis</a>
+            <a href="#">{cartItemCount} - produto(s) disponíveis</a>
           </LinkItem>
         </Links>
       </nav>

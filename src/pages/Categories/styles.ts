@@ -37,7 +37,7 @@ export const CategoryCard = styled.li`
 
   img {
     width: 100%;
-    height: auto;
+    height: 171px;
   }
 
   h2 {
