@@ -28,6 +28,10 @@ export const ModalContent = styled.div`
   div {
     margin-left: 24px;
     height: 280px;
+
+    @media (max-width: 768px) {
+      margin-left: 10px;
+    }
   }
 
   img {
@@ -46,6 +50,11 @@ export const ModalContent = styled.div`
     font-size: 14px;
     line-height: 22px;
     padding-bottom: 16px;
+
+    @media (max-width: 768px) {
+      padding-bottom: 4px;
+      margin-right: 4px;
+    }
   }
 
   ${StyledButton} {
