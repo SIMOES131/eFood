@@ -9,18 +9,13 @@ import {
 import { useState } from 'react'
 import { Modal } from '../../componets/Modal'
 
-type CategoriesProps = {
-  addToCart: (item: Restaurant) => void
-}
-
-const Categories = ({ addToCart }: CategoriesProps) => {
+const Categories = () => {
   const [showModal, setShowModal] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState<Restaurant | null>(
     null
   )
 
   const handleAddToCart = (item: Restaurant) => {
-    addToCart(item)
     setSelectedProduct(item)
     setShowModal(true)
   }

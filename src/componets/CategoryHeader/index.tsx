@@ -13,16 +13,22 @@ import logo from '../../assets/images/logo.png'
 import image from '../../assets/images/LaDolceVita.png'
 import { useNavigate } from 'react-router-dom'
 
-type Props = {
-  to?: string
-  cartItemCount: number
-}
+import { open } from '../../store/reducers/cart'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
 
-const CategoryHeader = ({ to = '/', cartItemCount }: Props) => {
+const CategoryHeader = () => {
   const navigate = useNavigate()
 
   const handleGoBack = () => {
     navigate(-1) // Navegar para a página anterior
+  }
+
+  const dispatch = useDispatch()
+  const { items } = useSelector((state: RootReducer) => state.cart)
+
+  const openCart = () => {
+    dispatch(open())
   }
 
   return (
@@ -35,8 +41,8 @@ const CategoryHeader = ({ to = '/', cartItemCount }: Props) => {
           <LinkItem>
             <Logo src={logo} alt="eFood" onClick={handleGoBack} />
           </LinkItem>
-          <LinkItem>
-            <a href="#">{cartItemCount} - produto(s) disponíveis</a>
+          <LinkItem onClick={openCart}>
+            <a href="#"> {items.length}- produto(s) disponíveis</a>
           </LinkItem>
         </Links>
       </nav>

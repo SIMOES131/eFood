@@ -37,7 +37,7 @@ const Product = ({
     <Links>
       <LinkItem>
         <Link to="/categories">
-          <ButtonLink to={to as string}>Saiba mais</ButtonLink>
+          <ButtonLink to={to}>Saiba mais</ButtonLink>
         </Link>
       </LinkItem>
     </Links>

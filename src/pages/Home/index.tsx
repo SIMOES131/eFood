@@ -5,6 +5,8 @@ import laDolceVita from '../../assets/images/LaDolceVita.png'
 
 import Restaurant from '../../componets/models/restaurant'
 
+import { useGetFeaturedRestaurantQuery } from '../../services/api'
+
 const restaurante: Restaurant[] = [
   {
     id: 1,
@@ -74,9 +76,11 @@ const restaurante: Restaurant[] = [
   }
 ]
 
-const Home = () => (
-  <div className="container">
-    <ProductsList restaurant={restaurante} />
-  </div>
-)
+const Home = () => {
+  return (
+    <div className="container">
+      <ProductsList restaurant={restaurante} />
+    </div>
+  )
+}
 export default Home
