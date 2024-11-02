@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const CategoriesContainer = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ export const CategoriesGrid = styled.ul`
   width: 100%;
   margin: 0 auto;
 
-  @media (max-width: 1024px) {
+  @media (max-width: ${breakpoints.desktop}) {
     padding-left: 25%;
     grid-template-columns: 1fr;
     width: 100%;

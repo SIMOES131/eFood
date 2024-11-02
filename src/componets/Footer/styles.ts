@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const FooterBar = styled.footer`
   background-color: ${cores.corCabecalhoRodape};
@@ -12,8 +12,9 @@ export const FooterBar = styled.footer`
   align-items: center;
   justify-content: center; /* Corrigido aqui */
 
-  @media (max-width: 1024px) {
+  @media (max-width: ${breakpoints.desktop}) {
     width: 100%;
+    margin-top: 0px;
   }
 
   a {

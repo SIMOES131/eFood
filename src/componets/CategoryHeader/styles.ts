@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const HeaderBar = styled.header`
   background-color: ${cores.corCabecalhoRodape};
@@ -11,12 +11,13 @@ export const HeaderBar = styled.header`
   justify-content: center;
   max-width: 100%;
 
-  @media (max-width: 1024px) {
+  @media (max-width: ${breakpoints.desktop}) {
     width: 100%;
     display: block;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${breakpoints.tablet}) {
+    display: none;
     margin-bottom: 40px;
   }
 
@@ -83,7 +84,7 @@ export const TopText = styled.div`
   left: 171px;
   font-size: 32px;
   color: ${cores.branca};
-  z-index: 2;
+  z-index: 1;
 
   @media (max-width: 768px) {
     font-size: 25px;
@@ -98,7 +99,7 @@ export const BottomText = styled.div`
   font-size: 32px;
   font-weight: bold;
   color: ${cores.branca};
-  z-index: 2;
+  z-index: 1;
 
   @media (max-width: 768px) {
     font-size: 25px;
