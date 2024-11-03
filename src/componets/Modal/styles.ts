@@ -3,7 +3,7 @@ import { cores } from '../../styles'
 import { StyledButton } from '../../pages/Categories/styles'
 
 export const ModalBackground = styled.div<{ show: boolean }>`
-  display: ${({ show }) => (show ? 'block' : 'none')};
+  display: ${({ show }) => (show ? 'flex' : 'none')};
   position: fixed;
   top: 0;
   left: 0;
@@ -11,6 +11,8 @@ export const ModalBackground = styled.div<{ show: boolean }>`
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
   z-index: 1000;
+  justify-content: center;
+  align-items: center;
 `
 
 export const ModalContent = styled.div`
