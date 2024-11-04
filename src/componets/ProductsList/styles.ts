@@ -22,6 +22,12 @@ export const List = styled.ul`
   column-gap: 80px;
   row-gap: 48px;
 
+  img {
+    max-width: 472px;
+    max-height: 217px;
+    width: 100%;
+  }
+
   @media (max-width: ${breakpoints.desktop}) {
     grid-template-columns: 1fr;
     gap: 20px;

@@ -11,6 +11,7 @@ type Props = {
   infos: string[]
   image: string
   to?: string
+  avaliation?: number
 }
 
 const Product = ({
@@ -18,7 +19,8 @@ const Product = ({
   description,
   infos,
   image,
-  to = '/categories'
+  to = '/categories',
+  avaliation
 }: Props) => (
   <Card>
     <img src={image} alt={title} />
@@ -30,7 +32,7 @@ const Product = ({
     <NotaTitulo>
       <Titulo>{title}</Titulo>
       <Avaliacao>
-        <h1>4.9</h1> <img src={star} alt="Estrela" />
+        <h1>{avaliation}</h1> <img src={star} alt="Estrela" />
       </Avaliacao>
     </NotaTitulo>
     <Descricao>{description}</Descricao>
