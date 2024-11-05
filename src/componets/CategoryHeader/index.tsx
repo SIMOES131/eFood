@@ -10,15 +10,14 @@ import {
 } from './styles'
 
 import logo from '../../assets/images/logo.png'
-import image from '../../assets/images/LaDolceVita.png'
-import { useNavigate } from 'react-router-dom'
-
+import { useNavigate, useParams } from 'react-router-dom'
 import { open } from '../../store/reducers/cart'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 
 const CategoryHeader = () => {
   const navigate = useNavigate()
+  const { categoria } = useParams()
 
   const handleGoBack = () => {
     navigate(-1) // Navegar para a página anterior
@@ -31,12 +30,53 @@ const CategoryHeader = () => {
     dispatch(open())
   }
 
+  const categoryData = {
+    italiana: {
+      topText: 'Italiana',
+      image:
+        'https://fake-api-tau.vercel.app/efood/bella_tavola_italiana//capa.jpeg',
+      bottomText: 'La Dolce Vita Trattoria'
+    },
+    japonesa: {
+      topText: 'Japonesa',
+      image:
+        'https://fake-api-tau.vercel.app/efood/sakura_sushi_house//capa.jpe',
+      bottomText: 'Sushi House'
+    },
+    portuguesa: {
+      topText: 'Portuguesa',
+      image:
+        'https://fake-api-tau.vercel.app/efood/cantinho_lusitano//capa.jpeg',
+      bottomText: 'Cantinho Lusitano'
+    },
+    vegano: {
+      topText: 'Vegano',
+      image: 'https://fake-api-tau.vercel.app/efood/jardim_terra/capa.png',
+      bottomText: 'Jardim da Terra'
+    },
+    pizzaria: {
+      topText: 'Pizzaria',
+      image: 'https://fake-api-tau.vercel.app/efood/piazza//capa.png',
+      bottomText: 'Pizzaria del Forno'
+    },
+    arabe: {
+      topText: 'Árabe',
+      image:
+        'https://fake-api-tau.vercel.app/efood/casa_delicias_arabes//capa.jpeg',
+      bottomText: 'Casa das Delícias Árabe'
+    }
+  }
+
+  const category =
+    categoryData[categoria as keyof typeof categoryData] ||
+    categoryData['italiana']
+
   return (
     <HeaderBar>
       <nav>
         <Links>
           <LinkItem>
-            <a href="#">Restaurantes</a>
+            <a onClick={handleGoBack}>Restaurantes</a>
           </LinkItem>
           <LinkItem>
             <Logo src={logo} alt="eFood" onClick={handleGoBack} />
@@ -47,9 +87,9 @@ const CategoryHeader = () => {
         </Links>
       </nav>
       <ImageContainer>
-        <TopText>Italiana</TopText>
-        <Image src={image} alt="Imagem" />
-        <BottomText>La Dolce Vita Trattoria</BottomText>
+        <TopText>{category.topText}</TopText>
+        <Image src={category.image} alt={`Imagem de ${category.topText}`} />
+        <BottomText>{category.bottomText}</BottomText>
       </ImageContainer>
     </HeaderBar>
   )

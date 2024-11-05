@@ -10,7 +10,7 @@ type Props = {
   description: string
   infos: string[]
   image: string
-  to?: string
+  to: string
   avaliation?: number
 }
 
@@ -19,7 +19,7 @@ const Product = ({
   description,
   infos,
   image,
-  to = '/categories',
+  to,
   avaliation
 }: Props) => (
   <Card>
@@ -38,7 +38,7 @@ const Product = ({
     <Descricao>{description}</Descricao>
     <Links>
       <LinkItem>
-        <Link to="/categories">
+        <Link to={to}>
           <ButtonLink to={to}>Saiba mais</ButtonLink>
         </Link>
       </LinkItem>

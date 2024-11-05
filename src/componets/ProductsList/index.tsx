@@ -1,88 +1,93 @@
 import Product from '../Product'
 import { List, Section } from './styles'
 
-import hiokiSushi from '../../assets/images/HiokiSushi.png'
-import laDolceVita from '../../assets/images/LaDolceVita.png'
-
 const restaurant = [
   {
     id: 1,
     title: 'Bella Tavola Italiana',
     description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+      'A paixão dos nossos talentosos chefs pela cozinha italiana é evidente em cada prato, desde massas caseiras e risotos cremosos até suculentos frutos do mar e carnes tenras. Nosso menu é complementado por uma excelente carta de vinhos, cuidadosamente selecionados para harmonizar com a riqueza dos sabores italianos.',
     descriptionModal:
       'A pizza Margherita é uma pizza clássica da culinária italiana, reconhecida por sua simplicidade e sabor inigualável. Ela é feita com uma base de massa fina e crocante, coberta com molho de tomate fresco, queijo mussarela de alta qualidade, manjericão fresco e azeite de oliva extra-virgem. A combinação de sabores é perfeita, com o molho de tomate suculento e ligeiramente ácido, o queijo derretido e cremoso e as folhas de manjericão frescas, que adicionam um toque de sabor herbáceo. É uma pizza simples, mas deliciosa, que agrada a todos os paladares e é uma ótima opção para qualquer ocasião.',
     serveInfo: 'Serve: de 2 a 3 pessoas',
-    infos: ['Destaque da semana', 'Japonesa'],
+    infos: ['Italiana'],
     image:
-      'https://fake-api-tau.vercel.app/efood/bella_tavola_italiana//1.webp',
+      'https://fake-api-tau.vercel.app/efood/bella_tavola_italiana//capa.jpeg',
     price: 60.9,
-    avaliation: 3.5
+    avaliation: 4.7,
+    to: '/italiana'
   },
   {
     id: 2,
     description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+      'O Cantinho Lusitano é um charmoso e tradicional restaurante português, que celebra a rica herança culinária de Portugal. Neste aconchegante espaço, os visitantes podem desfrutar dos autênticos sabores portugueses, preparados com ingredientes frescos e de alta qualidade, respeitando as receitas clássicas.',
     descriptionModal:
       'O Spaghetti alla Carbonara é um clássico prato italiano, feito com massa spaghetti al dente, coberto com um molho rico e cremoso à base de ovos, queijo pecorino romano, pancetta e pimenta-do-reino. Um prato saboroso e reconfortante que leva você diretamente para a Itália.',
     serveInfo: '1 a 2 pessoas',
-    title: 'Spaghetti alla Carbonara',
-    infos: ['Italiana'],
-    image: 'https://fake-api-tau.vercel.app/efood/bella_tavola_italiana//2.jpg',
-    price: 56.9,
-    avaliation: 5.0
+    title: 'Cantinho Lusitano',
+    infos: ['Português'],
+    image: 'https://fake-api-tau.vercel.app/efood/cantinho_lusitano//capa.jpeg',
+    price: 74.9,
+    avaliation: 4.8,
+    to: '/portuguesa'
   },
   {
     id: 3,
     description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+      'A Casa das Delícias Árabes é um acolhedor e autêntico restaurante árabe, localizado no coração da cidade, que proporciona uma verdadeira experiência culinária do Oriente Médio. O ambiente é decorado com elementos tradicionais e exóticos, criando uma atmosfera convidativa e confortável.',
     descriptionModal:
-      'O Risotto ai Funghi Porcini é uma iguaria italiana feita com arroz Arborio de alta qualidade e cogumelos porcini secos, que são reidratados para liberar seu sabor intenso e terroso. O arroz é cozido lentamente em um caldo de legumes, com vinho branco e queijo parmesão, resultando em um risoto cremoso e delicioso.',
+      'A Casa das Delícias Árabes é um acolhedor e autêntico restaurante árabe, localizado no coração da cidade, que proporciona uma verdadeira experiência culinária do Oriente Médio. O ambiente é decorado com elementos tradicionais e exóticos, criando uma atmosfera convidativa e confortável.',
     serveInfo: '1 a 2 pessoas',
-    title: 'Risotto ai Funghi Porcini',
-    infos: ['Destaque da semana', 'Japonesa'],
-    image: 'https://fake-api-tau.vercel.app/efood/bella_tavola_italiana//3.jpg',
+    title: 'Casa das Delícias Árabes',
+    infos: ['Árabe'],
+    image:
+      'https://fake-api-tau.vercel.app/efood/casa_delicias_arabes//capa.jpeg',
     price: 74.9,
-    avaliation: 4.4
+    avaliation: 4.8,
+    to: '/arabe'
   },
   {
     id: 4,
     description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+      'A Sakura Sushi House é um sofisticado e autêntico restaurante japonês que oferece uma experiência culinária imersiva, transportando os visitantes diretamente para a Terra do Sol Nascente. O ambiente elegante é complementado por um belo jardim japonês, criando uma atmosfera tranquila e serena',
     descriptionModal:
-      'O Ossobuco alla Milanese é um tradicional prato italiano, originário de Milão, que consiste em um suculento pedaço de vitela cozido lentamente em um molho à base de tomate, vinho branco e legumes. O prato é acompanhado por uma porção de polenta cremosa ou risoto alla Milanese, feito com açafrão.',
+      ' A Sakura Sushi House é um sofisticado e autêntico restaurante japonês que oferece uma experiência culinária imersiva, transportando os visitantes diretamente para a Terra do Sol Nascente. O ambiente elegante é complementado por um belo jardim japonês, criando uma atmosfera tranquila e serena',
     serveInfo: '1 a 2 pessoas',
-    title: 'Ossobuco alla Milanese',
-    infos: ['Italiana'],
-    image: 'https://fake-api-tau.vercel.app/efood/bella_tavola_italiana//4.jpg',
+    title: 'Sakura Sushi House',
+    infos: ['Japonesa'],
+    image:
+      'https://fake-api-tau.vercel.app/efood/sakura_sushi_house//capa.jpeg',
     price: 89.9,
-    avaliation: 4.0
+    avaliation: 4.9,
+    to: '/japonesa'
   },
   {
     id: 5,
     description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+      'O Jardim da Terra é um restaurante vegano que se dedica a oferecer pratos deliciosos e criativos, utilizando apenas ingredientes frescos, orgânicos e sazonais. Nosso cardápio é cuidadosamente elaborado para proporcionar uma experiência culinária única, que celebra a diversidade e a riqueza dos alimentos à base de plantas.',
     descriptionModal:
-      'Melanzane alla Parmigiana é um delicioso prato à base de berinjelas, em camadas com molho de tomate caseiro, queijo muçarela e parmesão, assado até ficar dourado e borbulhante. Uma opção saborosa e reconfortante, perfeita para os amantes de legumes e queijo.',
+      'O Jardim da Terra é um restaurante vegano que se dedica a oferecer pratos deliciosos e criativos, utilizando apenas ingredientes frescos, orgânicos e sazonais. Nosso cardápio é cuidadosamente elaborado para proporcionar uma experiência culinária única, que celebra a diversidade e a riqueza dos alimentos à base de plantas.',
     serveInfo: '1 a 2 pessoas',
-    title: 'Melanzane alla Parmigiana',
-    infos: ['Destaque da semana', 'Japonesa'],
-    image: 'https://fake-api-tau.vercel.app/efood/bella_tavola_italiana//5.jpg',
+    title: 'Jardim da Terra',
+    infos: ['Vegano'],
+    image: 'https://fake-api-tau.vercel.app/efood/jardim_terra//capa.png',
     price: 62.9,
-    avaliation: 4.8
+    avaliation: 4.8,
+    to: '/vegano'
   },
   {
     id: 6,
     description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+      'A Piazza del Forno é uma pizzaria acolhedora e autêntica que se orgulha de suas raízes italianas. Aqui, você encontrará pizzas artesanais preparadas com ingredientes frescos e assadas em forno a lenha, proporcionando sabores inigualáveis e uma crosta crocante e deliciosa.',
     descriptionModal:
-      'O Frutti di Mare Linguine é uma verdadeira celebração dos sabores do mar, apresentando uma generosa mistura de frutos do mar frescos, como camarões, lulas, mariscos e vieiras, combinados com massa linguine al dente e um saboroso molho de tomate e vinho branco. Uma opção deliciosa para os amantes de frutos do mar.',
+      'A Piazza del Forno é uma pizzaria acolhedora e autêntica que se orgulha de suas raízes italianas. Aqui, você encontrará pizzas artesanais preparadas com ingredientes frescos e assadas em forno a lenha, proporcionando sabores inigualáveis e uma crosta crocante e deliciosa.',
     serveInfo: 'Serve: de 2 a 3 pessoas',
-    title: 'Frutti di Mare Linguine',
-    infos: ['Italiana'],
-    image: 'https://fake-api-tau.vercel.app/efood/bella_tavola_italiana//6.jpg',
+    title: 'Piazza del Forno',
+    infos: ['Pizzaria'],
+    image: 'https://fake-api-tau.vercel.app/efood/piazza//capa.png',
     price: 84.9,
-    avaliation: 4.1
+    avaliation: 4.7,
+    to: '/pizzaria'
   }
 ]
 
@@ -94,10 +99,10 @@ const ProductsList = () => (
           key={restaurant.id}
           description={restaurant.description}
           image={restaurant.image}
-          //to={restaurant.to}
           infos={restaurant.infos}
           title={restaurant.title}
           avaliation={restaurant.avaliation}
+          to={restaurant.to}
         />
       ))}
     </List>

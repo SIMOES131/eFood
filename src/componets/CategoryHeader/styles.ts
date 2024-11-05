@@ -44,6 +44,10 @@ export const Links = styled.ul`
 
 export const LinkItem = styled.li`
   margin-right: 0; /* Corrigido aqui */
+
+  a {
+    cursor: pointer;
+  }
 `
 
 export const Titulo = styled.h1`
