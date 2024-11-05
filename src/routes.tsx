@@ -27,15 +27,6 @@ const Rotas = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
-          path="/categories"
-          element={
-            <>
-              <CategoryHeader />
-              <Categories />
-            </>
-          }
-        />
-        <Route
           path="/portuguesa"
           element={
             <>
@@ -63,7 +54,7 @@ const Rotas = () => {
           }
         />
         <Route
-          path="/categoria/japonesa"
+          path="/japonesa"
           element={
             <>
               <CategoryHeader />
