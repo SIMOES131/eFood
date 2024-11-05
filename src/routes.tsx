@@ -17,11 +17,10 @@ const Rotas = () => {
   return (
     <>
       {/* Exibe o Header comum, exceto na página de categories */}
-      {location.pathname !== '/categories' &&
-        location.pathname !== '/portuguesa' &&
+      {location.pathname !== '/portuguesa' &&
         location.pathname !== '/italiana' &&
         location.pathname !== '/arabe' &&
-        location.pathname !== '/categoria' &&
+        location.pathname !== '/japonesa' &&
         location.pathname !== '/pizzaria' &&
         location.pathname !== '/vegano' && <Header />}
 
