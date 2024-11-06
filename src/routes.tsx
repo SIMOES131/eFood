@@ -1,7 +1,7 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 import Home from './pages/Home'
-import Categories from './pages/Categories'
+
 import CategoryHeader from './componets/CategoryHeader'
 import Header from './componets/Header'
 import Portuguesa from './pages/Portuguesa'
@@ -10,13 +10,15 @@ import Arabe from './pages/Arabe'
 import Japonesa from './pages/Japonesa'
 import Pizzaria from './pages/Pizzaria'
 import Vegano from './pages/Vegano'
+import JapanHeader from './componets/CategoryHeader/JapanHeader/idex'
+import VeganoHeader from './componets/CategoryHeader/VeganoHeader'
+import PizzariaHeader from './componets/CategoryHeader/PizzariaHeader'
+import ArabeHeader from './componets/CategoryHeader/ArabeHeader'
+import PortuguesHeader from './componets/CategoryHeader/PortuguesHeader'
 
 const Rotas = () => {
-  const location = useLocation()
-
   return (
     <>
-      {/* Exibe o Header comum, exceto na página de categories */}
       {location.pathname !== '/portuguesa' &&
         location.pathname !== '/italiana' &&
         location.pathname !== '/arabe' &&
@@ -30,7 +32,7 @@ const Rotas = () => {
           path="/portuguesa"
           element={
             <>
-              <CategoryHeader />
+              <PortuguesHeader />
               <Portuguesa />
             </>
           }
@@ -48,7 +50,7 @@ const Rotas = () => {
           path="/arabe"
           element={
             <>
-              <CategoryHeader />
+              <ArabeHeader />
               <Arabe />
             </>
           }
@@ -57,7 +59,7 @@ const Rotas = () => {
           path="/japonesa"
           element={
             <>
-              <CategoryHeader />
+              <JapanHeader />
               <Japonesa />
             </>
           }
@@ -66,7 +68,7 @@ const Rotas = () => {
           path="/pizzaria"
           element={
             <>
-              <CategoryHeader />
+              <PizzariaHeader />
               <Pizzaria />
             </>
           }
@@ -75,7 +77,7 @@ const Rotas = () => {
           path="/vegano"
           element={
             <>
-              <CategoryHeader />
+              <VeganoHeader />
               <Vegano />
             </>
           }
