@@ -7,15 +7,15 @@ import {
   TopText,
   BottomText,
   ImageContainer
-} from './styles'
+} from '../styles'
 
-import logo from '../../assets/images/logo.png'
+import logo from '../../../assets/images/logo.png'
 import { useNavigate, useParams } from 'react-router-dom'
-import { open } from '../../store/reducers/cart'
+import { open } from '../../../store/reducers/cart'
 import { useDispatch, useSelector } from 'react-redux'
-import { RootReducer } from '../../store'
+import { RootReducer } from '../../../store'
 
-const CategoryHeader = () => {
+const ItalianHeader = () => {
   const navigate = useNavigate()
   const { categoria } = useParams()
 
@@ -95,4 +95,4 @@ const CategoryHeader = () => {
   )
 }
 
-export default CategoryHeader
+export default ItalianHeader

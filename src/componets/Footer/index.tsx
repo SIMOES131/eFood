@@ -8,6 +8,7 @@ import twitter from '../../assets/images/twitter.png'
 const Footer = () => (
   <FooterBar>
     <Logo src={logo} alt="eFood" />
+
     <SocialMedia>
       <SocialMediaImage src={facebook} alt="Facebook" />
       <SocialMediaImage src={instagram} alt="Instagram" />
