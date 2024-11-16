@@ -46,7 +46,7 @@ const Vegano = () => {
       price: 42.9
     },
     {
-      id: 21,
+      id: 22,
       description:
         'O Bowl de Cogumelos e Quinoa é uma combinação nutritiva e saborosa de quinoa cozida, cogumelos salteados, espinafre, abacate e tomates-cereja.',
       descriptionModal:

@@ -30,7 +30,7 @@ body {
   padding-left: 0px;
 
   .container {
-  width: 100%
+  width: 100%;
   max-width: 1024px;
   margin: 0 auto;
 

@@ -22,7 +22,7 @@ const Categories = () => {
 
   const restaurante: Restaurant[] = [
     {
-      id: 1,
+      id: 30,
       title: 'Bella Tavola Italiana',
       description:
         'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
@@ -35,7 +35,7 @@ const Categories = () => {
       price: 60.9
     },
     {
-      id: 2,
+      id: 31,
       description:
         'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
       descriptionModal:
@@ -48,7 +48,7 @@ const Categories = () => {
       price: 56.9
     },
     {
-      id: 3,
+      id: 32,
       description:
         'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
       descriptionModal:
@@ -61,7 +61,7 @@ const Categories = () => {
       price: 74.9
     },
     {
-      id: 4,
+      id: 33,
       description:
         'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
       descriptionModal:
@@ -74,7 +74,7 @@ const Categories = () => {
       price: 89.9
     },
     {
-      id: 5,
+      id: 34,
       description:
         'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
       descriptionModal:
@@ -87,7 +87,7 @@ const Categories = () => {
       price: 62.9
     },
     {
-      id: 6,
+      id: 35,
       description:
         'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
       descriptionModal:

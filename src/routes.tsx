@@ -2,7 +2,6 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 
 import Home from './pages/Home'
 
-import CategoryHeader from './componets/CategoryHeader/ItalianHeader'
 import Header from './componets/Header'
 import Portuguesa from './pages/Portuguesa'
 import Italiana from './pages/Italiana'
@@ -16,9 +15,19 @@ import PizzariaHeader from './componets/CategoryHeader/PizzariaHeader'
 import ArabeHeader from './componets/CategoryHeader/ArabeHeader'
 import PortuguesHeader from './componets/CategoryHeader/PortuguesHeader'
 import ItalianHeader from './componets/CategoryHeader/ItalianHeader'
+import { RootReducer } from './store'
+import { useSelector } from 'react-redux'
+import Cart from './componets/Cart'
+import Card from './componets/Card'
+import Pay from './componets/CardPay'
+import Order from './componets/CardOrder'
 
 const Rotas = () => {
   const location = useLocation()
+  const isCartOpen = useSelector((state: RootReducer) => state.cart.isOpen)
+  const isCardOpen = useSelector((state: RootReducer) => state.card.isOpen)
+  const isPayOpen = useSelector((state: RootReducer) => state.pay.isOpen)
+  const isOrderOpen = useSelector((state: RootReducer) => state.order.isOpen)
 
   const renderHeader = () => {
     switch (location.pathname) {
@@ -52,73 +61,13 @@ const Rotas = () => {
         <Route path="/pizzaria" element={<Pizzaria />} />
         <Route path="/vegano" element={<Vegano />} />
       </Routes>
-    </>
-    /*<>
-      {location.pathname !== '/portuguesa' &&
-        location.pathname !== '/italiana' &&
-        location.pathname !== '/arabe' &&
-        location.pathname !== '/japonesa' &&
-        location.pathname !== '/pizzaria' &&
-        location.pathname !== '/vegano' && <Header />}
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/portuguesa"
-          element={
-            <>
-              <PortuguesHeader />
-              <Portuguesa />
-            </>
-          }
-        />
-        <Route
-          path="/italiana"
-          element={
-            <>
-              <ItalianHeader />
-              <Italiana />
-            </>
-          }
-        />
-        <Route
-          path="/arabe"
-          element={
-            <>
-              <ArabeHeader />
-              <Arabe />
-            </>
-          }
-        />
-        <Route
-          path="/japonesa"
-          element={
-            <>
-              <JapanHeader />
-              <Japonesa />
-            </>
-          }
-        />
-        <Route
-          path="/pizzaria"
-          element={
-            <>
-              <PizzariaHeader />
-              <Pizzaria />
-            </>
-          }
-        />
-        <Route
-          path="/vegano"
-          element={
-            <>
-              <VeganoHeader />
-              <Vegano />
-            </>
-          }
-        />
-      </Routes>
-    </>*/
+      {/* Renderiza Cart e Card condicionalmente com base no estado */}
+      {isCartOpen && <Cart />}
+      {isCardOpen && <Card />}
+      {isPayOpen && <Pay />}
+      {isOrderOpen && <Order />}
+    </>
   )
 }
 

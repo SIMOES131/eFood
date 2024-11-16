@@ -3,7 +3,7 @@ import { cores } from '../../styles'
 import { ButtonContainer } from '../Button/styles'
 
 export const Overlay = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -102,4 +102,16 @@ export const Info = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+`
+
+export const ButtonContinuar = styled.button`
+  background-color: ${cores.corDeFundoCard};
+  color: ${cores.corFonteBotaoTag};
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: bold;
+  padding: 4px 4px;
 `
