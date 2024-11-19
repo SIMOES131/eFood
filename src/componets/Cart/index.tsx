@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { close, remove } from '../../store/reducers/cart'
 import { open as openCard } from '../../store/reducers/card'
+import { openPay } from '../../store/reducers/pay'
 import { getTotalPrice } from '../../utils'
 
 const Cart = () => {
@@ -22,9 +23,9 @@ const Cart = () => {
 
   const dispatch = useDispatch()
 
-  const closeCartAndOpenCard = () => {
+  const closeCartAndOpenPay = () => {
     dispatch(close())
-    dispatch(openCard())
+    dispatch(openPay())
   }
 
   /*const getTotalPrice = () => {
@@ -61,7 +62,7 @@ const Cart = () => {
           </Prices>
 
           <ButtonContinuar
-            onClick={closeCartAndOpenCard}
+            onClick={closeCartAndOpenPay}
             title="Clique aqui para continuar com a compra"
             type="submit"
           >

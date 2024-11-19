@@ -18,7 +18,7 @@ const Portuguesa = () => {
   )
 
   const {
-    data: RestaurantePortugues,
+    data: restaurantes,
     isLoading,
     isError,
     error
@@ -42,7 +42,7 @@ const Portuguesa = () => {
   return (
     <CategoriesContainer>
       <CategoriesGrid className="container">
-        {RestaurantePortugues?.map((item) => (
+        {restaurantes?.map((item) => (
           <CategoryCard key={item.id}>
             <img src={item.image} alt={item.title} />
             <h2>{item.title}</h2>

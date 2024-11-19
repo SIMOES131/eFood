@@ -2,36 +2,41 @@ import { useFormik } from 'formik'
 import { usePurchaseMutation } from '../../services/api'
 import * as Yup from 'yup'
 import InputMask from 'react-input-mask'
+import React, { useState } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { close as closeCard, open as openCard } from '../../store/reducers/card'
-import { open as openCart, close as closeCart } from '../../store/reducers/cart'
-import { openPay, closePay } from '../../store/reducers/pay'
-import { openOrder, closeOrder } from '../../store/reducers/order'
+import {
+  open as openCart,
+  close as closeCart,
+  remove
+} from '../../store/reducers/cart'
+import { closePay } from '../../store/reducers/pay'
+import { openOrder } from '../../store/reducers/order'
 import {
   PayContainer,
   Overlay,
-  SidebarPay,
   FistData,
   SecondData,
-  BackSand
+  BackSand,
+  Finalizar,
+  Sidebar
 } from './styles'
 
 import { getTotalPrice } from '../../utils'
 
-import Cart from '../Cart'
-import Pay from '../CardPay'
-import Card from '../Card'
-import Order from '../CardOrder'
 import classNames from 'classnames'
 
 const CardPay = () => {
+  const [currentStep, setCurrentStep] = useState<
+    'delivery' | 'payment' | 'order'
+  >('delivery')
+
   const { isOpen: isCardOpen } = useSelector((state: RootReducer) => state.card)
   const { isOpen: isCardPayOpen } = useSelector(
     (state: RootReducer) => state.pay
   )
-
   const { isOpen: isCartOpen, items } = useSelector(
     (state: RootReducer) => state.cart
   )
@@ -42,14 +47,21 @@ const CardPay = () => {
   const [purchase, { data, isSuccess, isLoading }] = usePurchaseMutation()
   const dispatch = useDispatch()
 
-  const closePayAndOpenOrder = () => {
+  const closePayAndOpenCart = () => {
     dispatch(closePay())
-    dispatch(openCard())
+    dispatch(openCart())
+  }
+  const closeFinish = () => {
+    dispatch(closePay())
   }
 
   const closePayCardCartAndOpenOrder = () => {
     dispatch(openOrder())
   }
+
+  const handleNextStep = () => setCurrentStep('payment')
+  const handlePreviousStep = () => setCurrentStep('delivery')
+  const handleNextOrder = () => setCurrentStep('order')
 
   const form = useFormik({
     initialValues: {
@@ -67,18 +79,27 @@ const CardPay = () => {
     },
 
     validationSchema: Yup.object({
-      cardNumber: Yup.string().when((values, schema) =>
-        schema.required('O campo é obrigatório')
-      ),
-      expiresMonth: Yup.string().when((values, schema) =>
-        schema.required('O campo é obrigatório')
-      ),
-      expiresYear: Yup.string().when((values, schema) =>
-        schema.required('O campo é obrigatório')
-      ),
-      cardCode: Yup.string().when((values, schema) =>
-        schema.required('O campo é obrigatório')
-      )
+      receiver: Yup.string()
+        .min(5, 'O nome precisa ter pelo menos 5 caracteres')
+        .required('O campo é obrigatório'),
+      description: Yup.string()
+        .min(3, 'O endereço precisa ter pelo menos 3 caracteres')
+        .required('O campo é obrigatório'),
+      city: Yup.string()
+        .min(3, 'A cidade precisa ter pelo menos 3 caracteres')
+        .required('O campo é obrigatório'),
+      zipCode: Yup.string()
+        .min(8, 'O CEP precisa ter 8 caracteres')
+        .max(8, 'O CEP precisa ter 8 caracteres')
+        .required('O campo é obrigatório'),
+      number: Yup.string()
+        .min(1, 'O número precisa ter pelo menos 1 caractere')
+        .required('O campo é obrigatório'),
+      cardDisplayName: Yup.string().required('O campo é obrigatório'),
+      cardNumber: Yup.string().required('O campo é obrigatório'),
+      cardCode: Yup.string().required('O campo é obrigatório'),
+      expiresMonth: Yup.string().required('O campo é obrigatório'),
+      expiresYear: Yup.string().required('O campo é obrigatório')
     }),
 
     onSubmit: (values) => {
@@ -109,6 +130,7 @@ const CardPay = () => {
       })
         .then((response) => {
           console.log('Resposta da API:', response)
+          closePayCardCartAndOpenOrder()
         })
         .catch((error) => {
           console.error('Erro ao fazer a compra:', error)
@@ -124,12 +146,70 @@ const CardPay = () => {
 
   return (
     <form onSubmit={form.handleSubmit}>
-      {isOrderOpen ? (
-        <Order />
-      ) : (
-        <PayContainer className={isCardPayOpen ? 'is-open' : ''}>
-          <Overlay onClick={() => dispatch(closePay())} />
-          <SidebarPay>
+      <PayContainer className={isCardPayOpen ? 'is-open' : ''}>
+        <Overlay onClick={() => dispatch(closePay())} />
+
+        {currentStep === 'delivery' && (
+          <Sidebar>
+            <h2>Entrega</h2>
+            <FistData>
+              <label htmlFor="receiver">Quem irá receber</label>
+              <input
+                id="receiver"
+                name="receiver"
+                type="text"
+                value={form.values.receiver}
+                onChange={form.handleChange}
+                onBlur={form.handleBlur}
+                className={classNames('base-class', {
+                  error: checkInputHasError('receiver')
+                })}
+              />
+              <label htmlFor="description">Endereço</label>
+              <input
+                type="text"
+                id="description"
+                name="description"
+                value={form.values.description}
+                onChange={form.handleChange}
+                onBlur={form.handleBlur}
+                className={classNames('base-class', {
+                  error: checkInputHasError('description')
+                })}
+              />
+              <label htmlFor="city">Cidade</label>
+              <input
+                id="city"
+                type="text"
+                name="city"
+                value={form.values.city}
+                onChange={form.handleChange}
+                onBlur={form.handleBlur}
+                className={classNames('base-class', {
+                  error: checkInputHasError('city')
+                })}
+              />
+            </FistData>
+            <BackSand>
+              <button
+                type="button"
+                onClick={handleNextStep}
+                disabled={isLoading}
+              >
+                Continuar com o pagamento
+              </button>
+              <button
+                onClick={closePayAndOpenCart}
+                type="button"
+                title="Voltar para o carrinho"
+              >
+                Voltar para o carrinho
+              </button>
+            </BackSand>
+          </Sidebar>
+        )}
+        {currentStep === 'payment' && (
+          <Sidebar>
             <h2>
               Pagamento - Valor a pagar R$ {getTotalPrice(items).toFixed(2)}
             </h2>
@@ -149,7 +229,9 @@ const CardPay = () => {
             </FistData>
             <SecondData>
               <div>
-                <label htmlFor="cardNumber">Número do cartão</label>
+                <label className="margin-bottom" htmlFor="cardNumber">
+                  Número do cartão
+                </label>
                 <InputMask
                   id="cardNumber"
                   type="text"
@@ -164,7 +246,9 @@ const CardPay = () => {
                 />
               </div>
               <div>
-                <label htmlFor="cardCode">CVV</label>
+                <label className="margin-bottom" htmlFor="cardCode">
+                  CVV
+                </label>
                 <InputMask
                   id="cardCode"
                   type="text"
@@ -181,7 +265,9 @@ const CardPay = () => {
             </SecondData>
             <SecondData>
               <div>
-                <label htmlFor="expiresMonth">Mês de vencimento</label>
+                <label className="margin-bottom" htmlFor="expiresMonth">
+                  Mês de vencimento
+                </label>
                 <InputMask
                   id="expiresMonth"
                   type="text"
@@ -196,7 +282,9 @@ const CardPay = () => {
                 />
               </div>
               <div>
-                <label htmlFor="expiresYear">Ano de vencimento</label>
+                <label className="margin-bottom" htmlFor="expiresYear">
+                  Ano de vencimento
+                </label>
                 <InputMask
                   id="expiresYear"
                   type="text"
@@ -207,29 +295,50 @@ const CardPay = () => {
                   className={classNames('base-class', {
                     error: checkInputHasError('expiresYear')
                   })}
-                  mask="999"
+                  mask="9999"
                 />
               </div>
             </SecondData>
             <BackSand>
-              <button
-                title="Clique aqui para continuar com o pagamento"
-                type="button"
-                onClick={closePayCardCartAndOpenOrder}
-              >
+              <button type="button" onClick={handleNextOrder}>
                 Finalizar pagamento
               </button>
-              <button
-                title="Clique aqui para voltar para o endereço"
-                type="button"
-                onClick={closePayAndOpenOrder}
-              >
+              <button type="button" onClick={handlePreviousStep}>
                 Voltar para edição de endereço
               </button>
             </BackSand>
-          </SidebarPay>
-        </PayContainer>
-      )}
+          </Sidebar>
+        )}
+        {currentStep === 'order' && (
+          <Sidebar>
+            <BackSand>
+              <h2>Pedido realizado - ORDER_ID </h2>
+              <p>
+                Estamos felizes em informar que seu pedido já está em processo
+                de preparação e, em breve, será entregue no endereço fornecido.{' '}
+                <br />
+                <br />
+                Gostaríamos de ressaltar que nossos entregadores não estão
+                autorizados a realizar cobranças extras.
+                <br />
+                <br />
+                Lembre-se da importância de higienizar as mãos após o
+                recebimento do pedido, garantindo assim sua segurança e
+                bem-estar durante a refeição. <br /> <br />
+                Esperamos que desfrute de uma deliciosa e agradável experiência
+                gastronômica. Bom apetite!
+              </p>
+            </BackSand>
+            <Finalizar
+              title="Clique aqui para finalizar"
+              type="button"
+              onClick={closeFinish}
+            >
+              Finalizar
+            </Finalizar>
+          </Sidebar>
+        )}
+      </PayContainer>
     </form>
   )
 }
